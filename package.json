@@ -6,7 +6,8 @@
   "scripts": {
     "docker:build": "docker-compose build",
     "dev": "docker-compose run --rm --service-ports server npm run dev",
-    "bash": "docker-compose run --rm --service-ports server /bin/bash"
+    "server": "docker-compose up server",
+    "bash": "docker-compose run --rm --service-ports bash /bin/bash"
   },
   "license": ""
 }

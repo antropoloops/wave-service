@@ -12,18 +12,21 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN apt-get install -yq --no-install-recommends \
     nodejs 
 
+# Used in development
+WORKDIR /workspace
+
 # Make sure Node.js is installed
 RUN           node -v
 RUN           npm -v
 
-# =================================
 
-# Setup a working directory to allow for
-# docker run --rm -ti -v ${PWD}:/work ...
-# =======================================
-WORKDIR /workspace
+RUN mkdir /app
+WORKDIR /app
+COPY package.json /app
+RUN npm install
 
-RUN mkdir app
+#Bundle app source
+COPY . /app
 
-# CMD [ "node", "app.js" ]
 ENTRYPOINT []
+CMD [ "node", "src/index.js" ]

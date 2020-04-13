@@ -4,6 +4,12 @@ services:
   server:
     build:
       context: ./server
+    ports:
+      - "3000:3000"
+
+  bash:
+    build:
+      context: ./server
     command: /bin/bash
     environment:
       PORT: 3033
