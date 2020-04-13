@@ -1,0 +1,12 @@
+{
+  "name": "wave-service",
+  "description": "Antropoloops wave service",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "docker:build": "docker-compose build",
+    "dev": "docker-compose run --rm --service-ports server npm run dev",
+    "bash": "docker-compose run --rm --service-ports server /bin/bash"
+  },
+  "license": ""
+}

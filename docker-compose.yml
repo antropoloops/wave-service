@@ -1,0 +1,17 @@
+version: "3.6"
+
+services:
+  server:
+    build:
+      context: ./server
+    command: /bin/bash
+    environment:
+      PORT: 3033
+    ports:
+      - "3033:3033"
+    volumes:
+      - ./server/:/workspace:cached
+      - node_modules:/workspace/node_modules
+
+volumes:
+  node_modules:
